@@ -18,16 +18,6 @@ print('''
 while True:
     print('''-------------
 Show Names: ''')
-    # if z == 0:
-    #     for i in show:
-    #         z = z + show[i]
-    #     if z == 0:
-    #         print('Exiting')
-    #         print(show)
-    #         print(book)
-    #         break
-    #     else:
-    #         pass
     for i in show:
         if show[i] > 0:
             print(i)
@@ -54,18 +44,16 @@ Show Names: ''')
         print(show)
         print(bookings)
         break
-    elif query.upper() == 'EMPTY':
-        tickets_total = 0
-        for i in show:
-            tickets_total += show[i]
-        if tickets_total == 0:
-            print('Sorry But No Show Tickets Are Left. Sorry For the Inconvenience... :(')
-            break
-        else:
-            print('Sorry Looks Like There Was A Glitch. Please Try Again')
 
     else:
         print('Sorry But That Show is Not Playing Today :(')
         input('Please Press Enter: ')
         print('''
         ''' * 50)
+    tickets_total = 0
+    for i in show:
+        tickets_total += show[i]
+    if tickets_total == 0:
+        print(
+            'No Show Tickets Are Left. Sorry For the Inconvenience... :(')
+        break
