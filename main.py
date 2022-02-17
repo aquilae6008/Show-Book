@@ -13,16 +13,14 @@ for i in range(shows):
     x = input(f'Show {i+1} Name: ')
     y = int(input(f'Enter Total Number of tickets for {x} show: '))
     show[x] = y
+recommend = {}
 print('''
 '''*50)
 while True:
     print('''-------------
 Show Names: ''')
-    for i in show:
-        if show[i] > 0:
-            print(i)
-    query = input('Which Show do you want to book (Enter Name) (IF NO SHOW NAMES '
-                'ARE ABOVE THEN TYPE "EMPTY"): ')
+    print('\n'.join(show.keys()))
+    query = input('Which Show do you want to book (Enter Name): ')
     if query in show:
         name = input("Please Enter Your Name: ")
         booked_tickets = int(input('Please Enter The Number Of Tickets You Wan To Get: '))
@@ -43,10 +41,12 @@ Show Names: ''')
         print('Exiting')
         print(show)
         print(bookings)
+        print(recommend)
         break
 
     else:
         print('Sorry But That Show is Not Playing Today :(')
+        recommend.setdefault(f'{query}', query)
         input('Please Press Enter: ')
         print('''
         ''' * 50)
